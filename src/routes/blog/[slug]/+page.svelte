@@ -31,6 +31,7 @@
 
 {#if post}
     <article class="post-content">
+    <a href="/blog" class="button transparent large-text bold nav-link">Volver al Blog</a>
         <div class="post-header">
             <h1>{decodeHTML(post.title.rendered)}</h1>
             <div class="post-meta">
@@ -43,7 +44,7 @@
     </article>
 {:else}
     <div class="loading">
-        <p>Cargando post...</p>
+        <p>Cargando post...</p><progress class="circle large"></progress>
     </div>
 {/if}
 
@@ -60,20 +61,17 @@
     }
 
     h1 {
-        font-size: 2.5rem;
-        color: #333;
+        font-size: 1.5rem;
         margin-bottom: 1rem;
         line-height: 1.2;
     }
 
     .post-meta {
-        color: #666;
         font-size: 0.9rem;
     }
 
     .content {
         line-height: 1.8;
-        color: #444;
     }
 
     .content :global(img) {
@@ -89,7 +87,6 @@
 
     .content :global(h2) {
         margin: 2rem 0 1rem;
-        color: #333;
     }
 
     .content :global(a) {
@@ -105,7 +102,6 @@
         border-left: 4px solid #ff3e00;
         margin: 1.5rem 0;
         padding-left: 1rem;
-        color: #666;
     }
 
     .content :global(pre) {

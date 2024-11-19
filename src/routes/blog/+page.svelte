@@ -85,8 +85,7 @@
             </div>
         {/each}
     </div>
-
-    <div class="pagination">
+    <div class="pagination row scroll">
         {#if totalPages > 1}
             {#each Array(totalPages) as _, i}
                 <button 
