@@ -1,38 +1,34 @@
-# sv
+# Blog Svelte con WordPress
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Este proyecto es un blog simple construido con Svelte que consume datos de la API REST de WordPress.  Permite mostrar entradas de blog, filtrarlas por categoría y paginar los resultados.
 
-## Creating a project
+## Características
 
-If you're seeing this, you've probably already done this step. Congrats!
+* **Consume la API REST de WordPress:**  Obtiene entradas de blog y categorías de un sitio WordPress especificado.
+* **Filtrado por categoría:**  Permite a los usuarios filtrar las entradas por categoría.
+* **Paginación:**  Divide las entradas en páginas para una mejor navegación.
+* **Diseño responsivo:**  Se adapta a diferentes tamaños de pantalla.
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Cómo ejecutar el proyecto
 
-# create a new project in my-app
-npx sv create my-app
-```
+1. Clona el repositorio: `git clone https://github.com/ximosa/svelte-wp`
+2. Instala las dependencias: `npm install`
+3. Inicia el servidor de desarrollo: `npm run dev`
 
-## Developing
+## Configuración
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+El ID del sitio de WordPress se configura en el archivo `+page.svelte` y actualmente está configurado como `expertoweb2.wordpress.com`.  Puedes cambiarlo para usar tu propio sitio de WordPress.
 
-```bash
-npm run dev
+## Dependencias
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+* Svelte
+* Otras dependencias listadas en `package.json`
 
-## Building
+## Contribuciones
 
-To create a production version of your app:
+Las contribuciones son bienvenidas.  Por favor, abre un "issue" o envía un "pull request".
 
-```bash
-npm run build
-```
+## Licencia
 
-You can preview the production build with `npm run preview`.
+[@, MIT]
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
