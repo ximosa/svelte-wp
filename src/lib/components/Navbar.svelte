@@ -14,17 +14,17 @@
    
      <div class="max l">
         <a href="/" class="button transparent large-text bold nav-link">Inicio</a>
-        <a href="blog" class="button transparent large-text bold nav-link">Blog</a>
-        <a href="about" class="button transparent large-text bold nav-link">Sobre Nosotros</a>
-        <a href="contact" class="button transparent large-text bold nav-link">Contacto</a>
+        <a href="/blog" class="button transparent large-text bold nav-link">Blog</a>
+        <a href="/about" class="button transparent large-text bold nav-link">Sobre Nosotros</a>
+        <a href="/contact" class="button transparent large-text bold nav-link">Contacto</a>
     </div>
      <button class="circle transparent">
         <i>more_vert</i>
    <menu class="no-wrap">
     <a href="/" class="button transparent large-text bold nav-link">Inicio</a>
-        <a href="blog" class="button transparent large-text bold nav-link">Blog</a>
-        <a href="about" class="button transparent large-text bold nav-link">Sobre Nosotros</a>
-        <a href="contact" class="button transparent large-text bold nav-link">Contacto</a>
+        <a href="/blog" class="button transparent large-text bold nav-link">Blog</a>
+        <a href="/about" class="button transparent large-text bold nav-link">Sobre Nosotros</a>
+        <a href="/contact" class="button transparent large-text bold nav-link">Contacto</a>
         </menu>
       </button>
       <label class="switch icon small">
