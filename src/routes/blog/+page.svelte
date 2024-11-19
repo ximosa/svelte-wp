@@ -31,9 +31,12 @@
     }
 
     function handlePageChange(page) {
-        currentPage = page;
-        fetchPosts(page, selectedCategory);
-    }
+  currentPage = page;
+  fetchPosts(page, selectedCategory).then(() => {
+    scrollToTop(); // Ahora sube al inicio después de cargar los datos.
+  });
+}
+
 
     function getFirstImage(content) {
         const parser = new DOMParser();
@@ -51,6 +54,13 @@
         txt.innerHTML = html;
         return txt.value;
     }
+  function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Para una animación suave
+  });
+}
+  
 </script>
 
 <div class="blog-container">
@@ -86,17 +96,31 @@
         {/each}
     </div>
     <div class="pagination row scroll">
-        {#if totalPages > 1}
-            {#each Array(totalPages) as _, i}
-                <button 
-                    class:active={currentPage === i + 1}
-                    on:click={() => handlePageChange(i + 1)}
-                >
-                    {i + 1}
-                </button>
-            {/each}
-        {/if}
-    </div>
+  {#if currentPage > 1}
+    <button on:click={() => handlePageChange(currentPage - 1)}>Anterior</button>
+  {/if}
+
+  {#if currentPage > 3}
+    <button on:click={() => handlePageChange(1)}>1</button>
+    <span>...</span>
+  {/if}
+
+  {#each [currentPage - 1, currentPage, currentPage + 1] as page (page)}
+    {#if page > 0 && page <= totalPages}
+      <button class:active={currentPage === page} on:click={() => handlePageChange(page)}>{page}</button>
+    {/if}
+  {/each}
+
+  {#if currentPage < totalPages - 2}
+    <span>...</span>
+    <button on:click={() => handlePageChange(totalPages)}>{totalPages}</button>
+  {/if}
+
+  {#if currentPage < totalPages}
+    <button on:click={() => handlePageChange(currentPage + 1)}>Siguiente</button>
+  {/if}
+</div>
+
 </div>
 
 <style>
@@ -142,12 +166,12 @@
     .pagination {
         margin-top: 2rem;
         display: flex;
-        gap: 0.5rem;
+        gap: 0.2rem;
         justify-content: center;
     }
 
     .pagination button {
-        padding: 0.5rem 1rem;
+        padding: 0.2rem;
         border: 1px solid #ddd;
         background: white;
         color: #000;
