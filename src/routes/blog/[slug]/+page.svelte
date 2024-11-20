@@ -30,18 +30,19 @@
 </script>
 
 {#if post}
-    <article class="post-content">
-    <a href="/blog" class="button transparent large-text bold nav-link">Volver al Blog</a>
+<a href="/blog" class="button transparent large-text bold nav-link">Volver al Blog</a>
+<div class="medium-space"></div>
+    <div class="post-content" style="padding: 1rem;font-size: 1.2rem;">
         <div class="post-header">
             <h1>{decodeHTML(post.title.rendered)}</h1>
             <div class="post-meta">
                 <span class="date">{new Date(post.date).toLocaleDateString()}</span>
             </div>
         </div>
-        <div class="content">
+        <div class="content extra-line">
             {@html post.content.rendered}
         </div>
-    </article>
+    </div>
 {:else}
     <div class="loading">
         <p>Cargando post...</p><progress class="circle large"></progress>
