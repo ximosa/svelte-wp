@@ -51,21 +51,28 @@
     }
   
     async function obtenerPosts(pageToken = '') {
-      try {
+    try {
         let url = `https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts?key=${API_KEY}&maxResults=${POSTS_POR_PAGINA}${pageToken ? '&pageToken=' + pageToken : ''}`;
         
         if (categoriaSeleccionada) {
-          url += `&labels=${encodeURIComponent(categoriaSeleccionada)}`;
+            url += `&labels=${encodeURIComponent(categoriaSeleccionada)}`;
         }
-  
+
         const response = await fetch(url);
         const data = await response.json();
-        posts = data.items || [];
+        
+        // Aseguramos que cada post tenga su slug generado correctamente
+        posts = (data.items || []).map(post => ({
+            ...post,
+            slug: crearSlug(post.title)
+        }));
+        
         tokenSiguiente = data.nextPageToken || '';
-      } catch (error) {
+    } catch (error) {
         console.error("Error al obtener los posts:", error);
-      }
     }
+}
+
   
     function filtrarPorCategoria(categoria) {
       categoriaSeleccionada = categoria;
@@ -92,12 +99,15 @@
       obtenerCategorias();
       obtenerPosts();
     });
+    function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
   </script>
   
   <div id="inicio" />
   
   <div style="max-width: 800px;margin: auto;padding:1rem;">
-    <h1>Blog</h1>
+    <h1>Blogger</h1>
   
     <div class="field label border">
       <select bind:value={categoriaSeleccionada} on:change={() => filtrarPorCategoria(categoriaSeleccionada)}>
@@ -121,27 +131,34 @@
             <div><img class="left-round medium" src={imagenUrl} alt={post.title}></div>
             <div class="max">
               <h2 class="small">
-                <a href="/blog/{slug}?id={post.id}">{post.title}</a>
-              </h2>
+                <a href="/blogger/{post.slug}">{post.title}</a>
+            </h2>>
             </div>
           </div>
           <p>{extracto}</p>
-          <div class="small-space" />
+          <div class="small-space"/>
           <div class="right-align">
-            <a class="link large-text underline" href="/blog/{slug}?id={post.id}">Ver más</a>
-          </div>
-          <div class="small-space" />
+            <a href="/blogger/{post.slug}">Ver más</a>
+        </div>
+          <div class="small-space"/>
         </div>
         <hr class="medium">
       {/each}
     </div>
-  
-    <div class="large-space" />
+  </div>
+    <div class="large-space"/>
   
     <div class="center-align">
-      <button disabled={paginaActual === 1} on:click={() => cambiarPagina('anterior')}>Anterior</button>
+      <button disabled={paginaActual === 1} on:click={() => {
+          cambiarPagina('anterior');
+          scrollToTop();
+      }}>Anterior</button>
       <span>Página {paginaActual}</span>
-      <button disabled={!tokenSiguiente} on:click={() => cambiarPagina('siguiente')}>Siguiente</button>
-    </div>
+      <button disabled={!tokenSiguiente} on:click={() => {
+          cambiarPagina('siguiente');
+          scrollToTop();
+      }}>Siguiente</button>
   </div>
+  
+
   

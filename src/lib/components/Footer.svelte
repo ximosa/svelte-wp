@@ -13,6 +13,7 @@
       <ul class="list-none padding-none">
         <li><a href="/" class="text-gray">Inicio</a></li>
         <li><a href="/blog" class="text-gray">Blog</a></li>
+        <li><a href="/blogger" class="text-gray">Blogger</a></li>
         <li><a href="/contact" class="text-gray">Contacto</a></li>
       </ul>
     </div>

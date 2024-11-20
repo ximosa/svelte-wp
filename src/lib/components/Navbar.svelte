@@ -1,11 +1,3 @@
-<script>
-    let menuItems = [
-        { path: '/', label: 'Inicio' },
-        { path: '/blog', label: 'Blog' },
-        { path: '/about', label: 'Sobre Nosotros' },
-        { path: '/contact', label: 'Contacto' }
-    ];
-</script>
 <header class="surface-container-lowest" >
     <nav id="navbar" class="fixed surface-container-lowest top">
         <button data-ui="#dialog-navigation" class="circle transparent">
@@ -14,7 +6,8 @@
    
      <div class="max l">
         <a href="/" class="button transparent large-text bold nav-link">Inicio</a>
-        <a href="/blog" class="button transparent large-text bold nav-link">Blog</a>
+        <a href="/blog" class="button transparent large-text bold nav-link">Blog-wp</a>
+        <a href="/blogger" class="button transparent large-text bold nav-link">Blogger</a>
         <a href="/about" class="button transparent large-text bold nav-link">Sobre Nosotros</a>
         <a href="/contact" class="button transparent large-text bold nav-link">Contacto</a>
     </div>
@@ -22,7 +15,8 @@
         <i>more_vert</i>
    <menu class="no-wrap">
     <a href="/" class="button transparent large-text bold nav-link">Inicio</a>
-        <a href="/blog" class="button transparent large-text bold nav-link">Blog</a>
+    <a href="/blog" class="button transparent large-text bold nav-link">Blog-wp</a>
+    <a href="/blogger" class="button transparent large-text bold nav-link">Blogger</a>
         <a href="/about" class="button transparent large-text bold nav-link">Sobre Nosotros</a>
         <a href="/contact" class="button transparent large-text bold nav-link">Contacto</a>
         </menu>
