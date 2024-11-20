@@ -15,9 +15,52 @@ Este proyecto es un blog simple construido con Svelte que consume datos de la AP
 2. Instala las dependencias: `npm install`
 3. Inicia el servidor de desarrollo: `npm run dev`
 
-## Configuración
 
-El ID del sitio de WordPress se configura en el archivo `+page.svelte` y actualmente está configurado como `expertoweb2.wordpress.com`.  Puedes cambiarlo para usar tu propio sitio de WordPress.
+## Características Principales
+
+### WordPress Integration
+- Consume WordPress REST API
+- Filtrado por categorías
+- Paginación de posts
+- URLs amigables usando slugs
+- Store centralizado para estado
+
+### Blogger Integration  
+- Consume Blogger API v3
+- Filtrado por etiquetas
+- Paginación con tokens
+- URLs amigables generadas desde títulos
+- Extracción de imágenes destacadas
+- Scroll automático al paginar
+
+## APIs Utilizadas
+
+### WordPress
+- Endpoint: `/wp/v2/posts`
+- Filtros por categoría
+- Paginación por offset
+
+### Blogger
+- Endpoint: `googleapis.com/blogger/v3`
+- API Key requerida
+- Paginación por tokens
+- Búsqueda por etiquetas
+
+## Rutas
+
+- `/blog` - Lista posts WordPress
+- `/blog/[slug]` - Post individual WordPress  
+- `/blogger` - Lista posts Blogger
+- `/blogger/[slug]` - Post individual Blogger
+
+## Características Comunes
+- Diseño responsive
+- Extractos de posts
+- Imágenes destacadas
+- Navegación por categorías
+- Paginación
+- URLs amigables
+
 
 ## Dependencias
 
