@@ -71,10 +71,6 @@ Este proyecto es un blog simple construido con Svelte que consume datos de la AP
 
 Las contribuciones son bienvenidas.  Por favor, abre un "issue" o envía un "pull request".
 
-# SvelteKit WordPress & Blogger Integration
-
-![SvelteKit + WordPress/Blogger](https://raw.githubusercontent.com/ximosa/svelte-wp/main/static/screenshot.png)
-
 ## 🚀 Introducción
 
 SvelteKit WP es una aplicación moderna que integra de manera elegante contenido de WordPress.com y Blogger en una interfaz construida con SvelteKit. Este proyecto demuestra cómo crear una aplicación web de alto rendimiento que consume múltiples APIs de blogs para presentar contenido de manera unificada.
