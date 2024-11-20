@@ -132,6 +132,7 @@
 
     .filters {
         margin-bottom: 2rem;
+        color: #000;
     }
 
     select {
